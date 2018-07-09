@@ -1,0 +1,64 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+          <groupId>com.google.code.plsqlmaven</groupId>
+          <artifactId>plsql-maven-webapp</artifactId>
+          <version>1.11</version>
+  </parent>
+
+  <groupId>org.sonatype.mavenbook</groupId>
+  <artifactId>simple</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>war</packaging>
+
+  <name>Sample PL/SQL webapp</name>
+
+        <dependencies>
+                <dependency>
+                        <groupId>com.google.code.plsqlgateway</groupId>
+                        <artifactId>plsqlgateway-core</artifactId>
+                </dependency>
+
+                <dependency>
+                        <groupId>com.google.code.eforceconfig</groupId>
+                        <artifactId>eforceconfig-core</artifactId>
+                </dependency>
+
+                <dependency>
+                        <groupId>com.google.code.eforceconfig</groupId>
+                        <artifactId>eforceconfig-servlet</artifactId>
+                </dependency>
+
+                <dependency>
+                        <groupId>com.google.code.plsqlmaven</groupId>
+                        <artifactId>plsql-webapp-deployer</artifactId>
+                </dependency>
+        </dependencies>
+  <build>
+    <finalName>simple</finalName>
+    <plugins>
+      <plugin>
+        <groupId>com.google.code.plsqlmaven</groupId>
+        <artifactId>plsql-maven-plugin</artifactId>
+        <version>1.11</version>
+        <configuration>
+            <defaultPage>home</defaultPage>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+   
+  <distributionManagement>
+    <repository>
+      <id>releases</id>
+      <url>http://192.168.144.132:8081/nexus/content/repositories/releases</url>
+    </repository>
+    <snapshotRepository>
+      <id>snapshots</id>
+      <url>http://192.168.144.132:8081/nexus/content/repositories/snapshots</url>
+    </snapshotRepository>
+  </distributionManagement>
+
+</project>
